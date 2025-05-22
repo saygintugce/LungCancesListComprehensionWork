@@ -1,5 +1,5 @@
 import pandas as pd
-import seaborn as sns
+
 
 
 df =  pd.read_csv('survey-lung-cancer.csv')
@@ -11,5 +11,7 @@ df.columns
 
 
 
-new_df = [column.replace(" ","_") for column in df.columns]
+df.columns = [column.replace(" ","_") for column in df.columns]
 
+new_cols = [column for column in df.columns if 'GENDER' in column or 'AGE' in column or 'LUNG_CANCER' in column]
+new_df = df[new_cols]
