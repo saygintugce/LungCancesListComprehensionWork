@@ -9,3 +9,7 @@ df.columns
 
 [column + "_FLAG" if df[column].dtypes == "O" else 'NO_' + column if df[column].dtype == 'int64' else column for column in df.columns]
 
+
+
+new_df = [column.replace(" ","_") for column in df.columns]
+
